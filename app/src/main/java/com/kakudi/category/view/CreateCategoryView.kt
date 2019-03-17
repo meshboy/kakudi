@@ -1,6 +1,5 @@
 package com.kakudi.category.view
 
-import com.kakudi.category.data.model.Category
 import com.kakudi.shared.mvp.BaseView
 
 /**
