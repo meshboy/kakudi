@@ -7,13 +7,8 @@ import com.kakudi.shared.mvp.BaseView
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 16/03/2019
  */
-interface CategoryView: BaseView {
+interface CreateCategoryView: BaseView {
 
-    fun showCategoryList(list: List<Category>)
-    fun nameError(message: String)
-    fun budgetExpenseError(message: String)
-    fun showLoading()
-    fun hideLoading()
-    fun showNextLoading()
-    fun hideNextLoading()
+    fun nameError(message: String?)
+    fun budgetExpenseError(message: String?)
 }

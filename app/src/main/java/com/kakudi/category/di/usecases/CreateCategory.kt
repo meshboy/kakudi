@@ -14,7 +14,7 @@ import javax.inject.Inject
 class CreateCategory @Inject constructor(private val repository: CategoryRepository) :
     NoOutputCase<Category> {
     @SuppressLint("CheckResult")
-    override fun execute(input: Category): Observable<Unit> {
-        return repository.insert(input)
+    override fun execute(data: Category): Observable<Unit> {
+        return repository.insert(data)
     }
 }
