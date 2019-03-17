@@ -16,12 +16,16 @@ class UserRepositoryImpl(private val userDao: UserDao) : UserRepository {
         }
     }
 
-    override fun deleteUser(token: String) {
+    override fun getCurrentUser(): Observable<User> {
+        return Observable.just(null)
+    }
+
+    override fun delete(data: User) {
 
     }
 
-    override fun getCurrentUser(): Observable<User> {
-        return Observable.just(null)
+    override fun update(data: User) {
+
     }
 
     override fun deleteAll() {

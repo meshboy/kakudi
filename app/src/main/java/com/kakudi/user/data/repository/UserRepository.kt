@@ -9,6 +9,5 @@ import io.reactivex.Observable
  *@date 15/03/2019
  */
 interface UserRepository: Repository<User> {
-    fun deleteUser(token: String)
     fun getCurrentUser(): Observable<User>
 }

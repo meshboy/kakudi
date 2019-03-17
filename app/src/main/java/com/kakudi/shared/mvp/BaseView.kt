@@ -5,9 +5,5 @@ package com.kakudi.shared.mvp
  *@date 16/03/2019
  */
 interface BaseView {
-    fun showLoading()
-    fun hideLoading()
     fun showError(message: String)
-    fun showNextLoading()
-    fun hideNextLoading()
 }
