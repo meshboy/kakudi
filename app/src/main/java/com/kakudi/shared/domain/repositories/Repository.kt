@@ -9,4 +9,6 @@ import io.reactivex.Observable
 interface Repository<T> {
     fun insert(data: T): Observable<Unit>
     fun deleteAll()
+    fun delete(data: T)
+    fun update(data: T)
 }
