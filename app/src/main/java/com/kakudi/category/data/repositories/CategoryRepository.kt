@@ -10,5 +10,4 @@ import io.reactivex.Observable
  */
 interface CategoryRepository: Repository<Category>{
     fun getAllCategories(userId: String): Observable<List<Category>>
-    fun deleteCategory(name: String)
 }

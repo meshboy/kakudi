@@ -1,9 +1,6 @@
 package com.kakudi.category.data.dao
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.kakudi.category.data.model.Category
 import io.reactivex.Observable
 
@@ -15,8 +12,11 @@ import io.reactivex.Observable
 interface CategoryDao {
 
     @Query("SELECT * FROM Categories WHERE userId = :userId")
-    fun getCategoriesById(userId: String): Observable<List<Category>>
+    fun getCategoriesByUserId(userId: String): Observable<List<Category>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertCategory(category: Category)
+
+    @Delete
+    fun delete(category: Category)
 }

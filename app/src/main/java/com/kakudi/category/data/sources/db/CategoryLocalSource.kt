@@ -10,6 +10,7 @@ import io.reactivex.Observable
  *@date 16/03/2019
  */
 class CategoryLocalSource(private val categoryDao: CategoryDao) : CategoryRepository {
+
     override fun insert(data: Category): Observable<Unit> {
        return Observable.fromCallable{
            categoryDao.insertCategory(data)
@@ -17,10 +18,15 @@ class CategoryLocalSource(private val categoryDao: CategoryDao) : CategoryReposi
     }
 
     override fun getAllCategories(userId: String): Observable<List<Category>> {
-        return categoryDao.getCategoriesById(userId)
+        return categoryDao.getCategoriesByUserId(userId)
     }
 
-    override fun deleteCategory(name: String) {
+    override fun delete(data: Category) {
+        categoryDao.delete(data)
+    }
+
+    override fun update(data: Category) {
+
     }
 
     override fun deleteAll() {
