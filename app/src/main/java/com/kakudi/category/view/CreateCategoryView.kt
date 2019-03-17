@@ -12,4 +12,8 @@ interface CategoryView: BaseView {
     fun showCategoryList(list: List<Category>)
     fun nameError(message: String)
     fun budgetExpenseError(message: String)
+    fun showLoading()
+    fun hideLoading()
+    fun showNextLoading()
+    fun hideNextLoading()
 }
