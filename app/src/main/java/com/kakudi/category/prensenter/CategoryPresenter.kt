@@ -6,7 +6,6 @@ import com.kakudi.category.di.usecases.CreateCategory
 import com.kakudi.category.di.usecases.FetchCategory
 import com.kakudi.category.view.CategoryView
 import com.kakudi.user.data.repository.UserRepository
-import java.util.*
 import javax.inject.Inject
 
 /**
@@ -36,21 +35,21 @@ class CategoryPresenter @Inject constructor(
 
     fun create(name: String, description: String?, targetAmount: String) {
 
-        if(validateInput(name, targetAmount)) {
-            val date = Date()
-            val category = Category(name, targetAmount.toDouble(), description, "", date.time)
+        if (validateInput(name, targetAmount)) {
+            val category =
+                Category(name = name, description = description, targetExpense = targetAmount.toDouble(), userId = "")
             createCategory.execute(category)
 
         }
     }
 
     private fun validateInput(name: String, targetAmount: String): Boolean {
-        when{
+        when {
             name.isEmpty() -> {
                 view.nameError("Name can not be empty")
                 return false
             }
-            targetAmount.isEmpty() ->{
+            targetAmount.isEmpty() -> {
                 view.budgetExpenseError("Budget expense can not be empty")
                 return false
             }
