@@ -7,7 +7,7 @@ import com.kakudi.shared.mvp.BaseView
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 17/03/2019
  */
-interface CategoryListView: BaseView {
+interface CategoryListView : BaseView {
     fun showCategoryList(list: List<Category>)
     fun showLoading()
     fun hideLoading()

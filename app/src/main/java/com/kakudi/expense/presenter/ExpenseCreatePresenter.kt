@@ -9,8 +9,8 @@ import javax.inject.Inject
  *@date 17/03/2019
  */
 class ExpenseCreatePresenter @Inject constructor(
-    private val currentUserRepository: UserRepository,
-    private val view: CreateExpenseView
+        private val currentUserRepository: UserRepository,
+        private val view: CreateExpenseView
 ) {
 
     fun create() {

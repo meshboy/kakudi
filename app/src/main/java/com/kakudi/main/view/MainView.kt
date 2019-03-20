@@ -6,7 +6,7 @@ import com.kakudi.shared.mvp.BaseView
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 20/03/2019
  */
-interface MainView: BaseView {
+interface MainView : BaseView {
     fun goToSplashPage()
     fun goToWelocomePage()
     fun goToLoginPage()

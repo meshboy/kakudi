@@ -7,6 +7,6 @@ import io.reactivex.Observable
  *@date 16/03/2019
  */
 
-interface NoOutputCase<I>{
+interface NoOutputCase<I> {
     fun execute(data: I): Observable<Unit>
 }

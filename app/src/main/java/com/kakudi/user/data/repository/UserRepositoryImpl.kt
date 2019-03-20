@@ -12,7 +12,7 @@ import javax.inject.Inject
 class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : UserRepository {
 
     override fun insert(data: User): Observable<Unit> {
-        return Observable.fromCallable{
+        return Observable.fromCallable {
             userDao.insertUser(data)
         }
     }

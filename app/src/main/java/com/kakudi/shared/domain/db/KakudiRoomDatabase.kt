@@ -27,13 +27,13 @@ abstract class KakudiRoomDatabase : RoomDatabase() {
         private var instance: KakudiRoomDatabase? = null
 
         fun getInstance(context: Context): KakudiRoomDatabase =
-            instance ?: synchronized(this) {
-                instance ?: buildDatabase(context).also { instance = it }
-            }
+                instance ?: synchronized(this) {
+                    instance ?: buildDatabase(context).also { instance = it }
+                }
 
         private fun buildDatabase(context: Context): KakudiRoomDatabase {
             return Room.databaseBuilder(context.applicationContext, KakudiRoomDatabase::class.java, databaseName)
-                .build()
+                    .build()
         }
     }
 }

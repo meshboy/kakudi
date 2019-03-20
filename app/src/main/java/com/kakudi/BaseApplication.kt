@@ -8,7 +8,7 @@ import timber.log.Timber
  *@date 14/03/2019
  */
 
-class BaseApplication: Application() {
+class BaseApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()

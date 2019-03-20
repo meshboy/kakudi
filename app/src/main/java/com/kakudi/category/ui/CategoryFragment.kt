@@ -29,19 +29,19 @@ class CategoryFragment : BaseFragment<CategoryListView, CategoryListPresenter>()
 
     override fun createPresenter(): CategoryListPresenter = categoryListPresenter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        DaggerApplicationComponent.builder()
-            .contextModule(ContextModule(activity!!.applicationContext))
-            .repositoryModule(RepositoryModule())
-            .build().plus(MainModule())
-            .inject(this@CategoryFragment)
+        DaggerApplicationComponent
+                .builder()
+                .contextModule(ContextModule(activity!!.applicationContext))
+                .repositoryModule(RepositoryModule())
+                .build().plus(MainModule())
+                .inject(this@CategoryFragment)
         super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_category, container, false)

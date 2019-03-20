@@ -1,22 +1,20 @@
 package com.kakudi.shared.mvp
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.hannesdorfmann.mosby3.mvp.MvpActivity
 
 /**
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 16/03/2019
  */
-abstract class BaseActivity: AppCompatActivity(){
+abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : MvpActivity<V, P>() {
 
-    abstract fun setLayout(): Int
-    abstract fun bindViews()
     abstract fun setDaggerComponent()
+    abstract fun setView()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setDaggerComponent()
         super.onCreate(savedInstanceState)
-        setContentView(setLayout())
-        bindViews()
+        setView()
     }
 }

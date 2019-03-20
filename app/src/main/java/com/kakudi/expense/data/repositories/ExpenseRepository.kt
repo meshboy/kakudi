@@ -8,7 +8,7 @@ import io.reactivex.Observable
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 17/03/2019
  */
-interface ExpenseRepository: Repository<Expense> {
+interface ExpenseRepository : Repository<Expense> {
 
     fun getAllExpenses(userId: String): Observable<List<Expense>>
 }

@@ -22,6 +22,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -59,4 +63,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     implementation "com.hannesdorfmann.mosby3:mvp:$mosbyVersion"
+
+    implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
 }

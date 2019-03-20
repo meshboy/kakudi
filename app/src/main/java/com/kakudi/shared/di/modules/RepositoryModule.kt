@@ -58,7 +58,7 @@ class RepositoryModule {
     }
 
     @Provides
-    fun providesUserDao(providesContext: Context): UserDao{
+    fun providesUserDao(providesContext: Context): UserDao {
         return KakudiRoomDatabase.getInstance(providesContext).userDao()
     }
 

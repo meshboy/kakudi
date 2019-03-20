@@ -9,6 +9,6 @@ import dagger.Subcomponent
  *@date 19/03/2019
  */
 @Subcomponent(modules = [(MainModule::class)])
-interface MainSubComponent{
+interface MainSubComponent {
     fun inject(fragment: CategoryFragment)
 }

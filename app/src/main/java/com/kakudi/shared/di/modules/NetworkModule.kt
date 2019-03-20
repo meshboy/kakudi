@@ -40,9 +40,9 @@ class NetworkModule {
     @Provides
     fun providesOkHttpClient(providesLoggingInterceptor: HttpLoggingInterceptor, providesCache: Cache): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(providesLoggingInterceptor)
-            .cache(providesCache)
-            .build()
+                .addInterceptor(providesLoggingInterceptor)
+                .cache(providesCache)
+                .build()
     }
 
     @Provides
@@ -55,9 +55,9 @@ class NetworkModule {
     fun retrofit(providesGson: Gson, providesOkHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
 //            .baseUrl(BuildConfig.APP_BASE_URL)
-            .client(providesOkHttpClient)
-            .addConverterFactory(GsonConverterFactory.create(providesGson))
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+                .client(providesOkHttpClient)
+                .addConverterFactory(GsonConverterFactory.create(providesGson))
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
     }
 }

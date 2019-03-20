@@ -11,7 +11,7 @@ import javax.inject.Named
  *@date 17/03/2019
  */
 class ExpenseRepositoryImpl @Inject constructor(@Named("localExpenseResource") private val localResource: ExpenseLocalResource) :
-    ExpenseRepository {
+        ExpenseRepository {
 
     override fun getAllExpenses(userId: String): Observable<List<Expense>> {
         return localResource.getAllExpenses(userId)

@@ -7,7 +7,7 @@ import com.kakudi.shared.mvp.BaseView
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 17/03/2019
  */
-interface ExpenseListView: BaseView {
+interface ExpenseListView : BaseView {
 
     fun showExpenseList(list: List<Expense>)
     fun showLoading()

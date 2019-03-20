@@ -13,11 +13,11 @@ import javax.inject.Inject
  *@date 16/03/2019
  */
 class FetchCategory @Inject constructor(private val repository: CategoryRepository) :
-    OneInputUseCase<String, List<Category>> {
+        OneInputUseCase<String, List<Category>> {
     override fun execute(input: String): Observable<List<Category>> {
         return repository
-            .getAllCategories(userId = input)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+                .getAllCategories(userId = input)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
     }
 }

@@ -8,6 +8,6 @@ import io.reactivex.Observable
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 15/03/2019
  */
-interface UserRepository: Repository<User> {
+interface UserRepository : Repository<User> {
     fun getCurrentUser(): Observable<User>
 }
