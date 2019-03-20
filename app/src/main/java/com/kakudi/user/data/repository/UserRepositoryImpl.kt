@@ -3,12 +3,13 @@ package com.kakudi.user.data.repository
 import com.kakudi.user.data.dao.UserDao
 import com.kakudi.user.data.model.User
 import io.reactivex.Observable
+import javax.inject.Inject
 
 /**
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 15/03/2019
  */
-class UserRepositoryImpl(private val userDao: UserDao) : UserRepository {
+class UserRepositoryImpl @Inject constructor(private val userDao: UserDao) : UserRepository {
 
     override fun insert(data: User): Observable<Unit> {
         return Observable.fromCallable{

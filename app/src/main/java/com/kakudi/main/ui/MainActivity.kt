@@ -1,6 +1,7 @@
 package com.kakudi.main.ui
 
 import com.kakudi.R
+import com.kakudi.category.ui.CategoryFragment
 import com.kakudi.shared.mvp.BaseActivity
 
 class MainActivity : BaseActivity() {
@@ -13,6 +14,7 @@ class MainActivity : BaseActivity() {
 
     override fun bindViews() {
 
+        supportFragmentManager.beginTransaction().add(R.id.container, CategoryFragment()).commit()
     }
 
 }
