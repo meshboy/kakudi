@@ -3,13 +3,14 @@ package com.kakudi.category.data.repositories
 import com.kakudi.category.data.model.Category
 import com.kakudi.category.data.sources.db.CategoryLocalSource
 import io.reactivex.Observable
+import javax.inject.Inject
 import javax.inject.Named
 
 /**
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 16/03/2019
  */
-class CategoryRepositoryImpl(@Named("localCategoryResource") private val localResource: CategoryLocalSource) :
+class CategoryRepositoryImpl @Inject constructor(@Named("localCategoryResource") private val localResource: CategoryLocalSource) :
     CategoryRepository {
 
     override fun insert(data: Category): Observable<Unit> {
