@@ -15,7 +15,7 @@ import com.kakudi.user.data.model.User
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 15/03/2019
  */
-@Database(entities = [User::class, Category::class, Expense::class], version = 1, exportSchema = true)
+@Database(entities = [User::class, Category::class, Expense::class], version = 1, exportSchema = false)
 abstract class KakudiRoomDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

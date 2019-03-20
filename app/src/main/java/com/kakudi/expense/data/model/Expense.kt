@@ -2,6 +2,7 @@ package com.kakudi.expense.data.model
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.kakudi.category.data.model.Category
 import java.util.*
@@ -12,6 +13,7 @@ import java.util.*
  */
 @Entity(
     tableName = "Expenses",
+    indices = [Index("categoryId")],
     foreignKeys = [ForeignKey(
         entity = Category::class,
         parentColumns = arrayOf("id"),
