@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.kakudi.R
+import com.kakudi.databinding.FragmentMainWelcomeBinding
 import com.kakudi.intro.di.modules.MainIntroModule
+import com.kakudi.intro.view.MainIntroView
 import com.kakudi.intro.welcome.adapter.MainWelcomePageAdapter
 import com.kakudi.intro.welcome.presenter.WelcomePresenter
 import com.kakudi.intro.welcome.view.WelcomeView
@@ -29,6 +32,8 @@ class MainWelcomeFragment : BaseFragment<WelcomeView, WelcomePresenter>(), Welco
     @Inject
     lateinit var mainWelcomePresenter: WelcomePresenter
 
+    lateinit var binding: FragmentMainWelcomeBinding
+
     override fun createPresenter(): WelcomePresenter = mainWelcomePresenter
 
     override fun setDaggerComponent() {
@@ -36,20 +41,23 @@ class MainWelcomeFragment : BaseFragment<WelcomeView, WelcomePresenter>(), Welco
             .builder()
             .contextModule(ContextModule(activity!!.applicationContext))
             .repositoryModule(RepositoryModule())
-            .build().plus(MainIntroModule()).inject(this)
+            .build().plus(MainIntroModule(activity as MainIntroView)).inject(this)
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_welcome, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_main_welcome, container, false)
+        return binding.root
     }
 
     override fun setView(view: View) {
         val viewPager2 = view.findViewById<ViewPager2>(R.id.viewPager)
         viewPager2.adapter = welcomeAdapter()
+        binding.createAccount.setOnClickListener { navigateToRegisterPage() }
+        binding.signIn.setOnClickListener { navigateToLogin() }
     }
 
     private fun welcomeAdapter(): MainWelcomePageAdapter {
@@ -76,6 +84,14 @@ class MainWelcomeFragment : BaseFragment<WelcomeView, WelcomePresenter>(), Welco
             )
         )
         return viewPagerAdapter
+    }
+
+    private fun navigateToLogin() {
+        mainWelcomePresenter.goToLogin()
+    }
+
+    private fun navigateToRegisterPage() {
+        mainWelcomePresenter.goToRegister()
     }
 
     override fun showError(message: String) {

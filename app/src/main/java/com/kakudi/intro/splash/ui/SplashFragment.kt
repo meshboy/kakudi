@@ -10,6 +10,7 @@ import com.kakudi.R
 import com.kakudi.intro.di.modules.MainIntroModule
 import com.kakudi.intro.splash.presenter.SplashPresenter
 import com.kakudi.intro.splash.view.SplashView
+import com.kakudi.intro.view.MainIntroView
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
@@ -32,7 +33,7 @@ class SplashFragment : BaseFragment<SplashView, SplashPresenter>() {
             .builder()
             .contextModule(ContextModule(activity!!.applicationContext))
             .repositoryModule(RepositoryModule())
-            .build().plus(MainIntroModule()).inject(this)
+            .build().plus(MainIntroModule(activity as MainIntroView)).inject(this)
     }
 
     override fun setView(view: View) {
