@@ -15,8 +15,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".main.ui.MainActivity">
+        </activity>
         <activity
-                android:name=".main.ui.MainActivity"
+                android:name=".intro.ui.MainIntroActivity"
                 android:label="@string/title_activity_main"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

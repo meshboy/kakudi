@@ -5,25 +5,19 @@
         >
 
     <FrameLayout
-            android:id="@+id/container"
+            android:id="@+id/mainContainer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".main.ui.MainActivity">
+            tools:context=".intro.ui.MainIntroActivity">
 
         <fragment
-                android:id="@+id/mainNavHost"
+                android:id="@+id/mainIntroNavHost"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:name="androidx.navigation.fragment.NavHostFragment"
-                app:navGraph="@navigation/navigation"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/intro_navigation"
                 />
-
-        <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:text="splash screen o"/>
 
     </FrameLayout>
 

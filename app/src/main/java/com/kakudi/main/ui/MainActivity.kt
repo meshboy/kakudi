@@ -9,6 +9,7 @@ import com.kakudi.main.view.MainView
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
+import com.kakudi.shared.ext.toast
 import com.kakudi.shared.mvp.BaseActivity
 import javax.inject.Inject
 
@@ -35,18 +36,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
         val navController = this.findNavController(R.id.mainNavHost)
     }
 
-    override fun goToSplashPage() {
-
-    }
-
-    override fun goToWelocomePage() {
-
-    }
-
-    override fun goToLoginPage() {
-
-    }
-
     override fun goToCategoryListPage() {
 
     }
@@ -64,7 +53,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
     }
 
     override fun showError(message: String) {
-
+        toast(message)
     }
-
 }
