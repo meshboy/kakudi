@@ -3,11 +3,10 @@ package com.kakudi.intro.ui
 import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.kakudi.R
 import com.kakudi.databinding.ActivityMainIntroBinding
-import com.kakudi.intro.MainIntroView
+import com.kakudi.intro.view.MainIntroView
 import com.kakudi.intro.presenter.MainIntroPresenter
 import com.kakudi.main.ui.MainActivity
 import com.kakudi.shared.di.components.DaggerApplicationComponent
@@ -17,7 +16,8 @@ import com.kakudi.shared.ext.toast
 import com.kakudi.shared.mvp.BaseActivity
 import javax.inject.Inject
 
-class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(), MainIntroView {
+class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
+    MainIntroView {
 
     @Inject
     lateinit var mainIntroPresenter: MainIntroPresenter
@@ -40,7 +40,6 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(), Mai
     override fun setView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_intro)
         navController = findNavController(R.id.mainIntroNavHost)
-
 
         Thread{
             Thread.sleep(3_000)

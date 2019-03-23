@@ -1,7 +1,8 @@
 package com.kakudi.intro.di.components
 
 import com.kakudi.intro.di.modules.MainIntroModule
-import com.kakudi.intro.ui.MainWelcomeFragment
+import com.kakudi.intro.splash.ui.SplashFragment
+import com.kakudi.intro.welcome.ui.MainWelcomeFragment
 import com.kakudi.login.ui.LoginFragment
 import com.kakudi.register.ui.RegisterFragment
 import dagger.Subcomponent
@@ -15,4 +16,5 @@ interface MainIntroSubComponent {
     fun inject(fragment: MainWelcomeFragment)
     fun inject(fragment: LoginFragment)
     fun  inject(fragment: RegisterFragment)
+    fun inject(fragment: SplashFragment)
 }

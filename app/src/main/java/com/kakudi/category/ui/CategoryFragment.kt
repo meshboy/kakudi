@@ -29,16 +29,6 @@ class CategoryFragment : BaseFragment<CategoryListView, CategoryListPresenter>()
 
     override fun createPresenter(): CategoryListPresenter = categoryListPresenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        DaggerApplicationComponent
-                .builder()
-                .contextModule(ContextModule(activity!!.applicationContext))
-                .repositoryModule(RepositoryModule())
-                .build().plus(MainModule())
-                .inject(this@CategoryFragment)
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -47,9 +37,17 @@ class CategoryFragment : BaseFragment<CategoryListView, CategoryListPresenter>()
         return inflater.inflate(R.layout.fragment_category, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        createPresenter().test()
+    override fun setDaggerComponent() {
+        DaggerApplicationComponent
+            .builder()
+            .contextModule(ContextModule(activity!!.applicationContext))
+            .repositoryModule(RepositoryModule())
+            .build().plus(MainModule())
+            .inject(this@CategoryFragment)
+    }
+
+    override fun setView(view: View) {
+
     }
 
     override fun showCategoryList(list: List<Category>) {

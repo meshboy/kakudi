@@ -7,7 +7,7 @@
 
     <fragment
             android:id="@+id/splashFragment"
-            android:name="com.kakudi.intro.ui.SplashFragment"
+            android:name="com.kakudi.intro.splash.ui.SplashFragment"
             android:label="fragment_splash"
             tools:layout="@layout/fragment_splash">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
             android:id="@+id/mainWelcomeFragment"
-            android:name="com.kakudi.intro.ui.MainWelcomeFragment"
+            android:name="com.kakudi.intro.welcome.ui.MainWelcomeFragment"
             android:label="fragment_main_welcome"
             tools:layout="@layout/fragment_main_welcome">
         <action

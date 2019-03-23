@@ -4,4 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="login">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="description_one">Kakudi helps  in tracking day to day Cash inflow and outflow</string>
+    <string name="description_two">See how you now spend with ease</string>
+    <string name="description_three">Get a reminder of the loans and credit you inquire.</string>
 </resources>

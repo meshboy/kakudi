@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="medium_button_padding">20dp</dimen>
+    <dimen name="medium_text_size">15sp</dimen>
 </resources>

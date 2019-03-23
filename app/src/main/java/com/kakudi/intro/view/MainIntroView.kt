@@ -1,4 +1,4 @@
-package com.kakudi.intro
+package com.kakudi.intro.view
 
 import com.kakudi.shared.mvp.BaseView
 
