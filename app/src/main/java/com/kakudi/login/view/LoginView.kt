@@ -7,4 +7,6 @@ import com.kakudi.shared.mvp.BaseView
  *@date 30/03/2019
  */
 interface LoginView : BaseView {
+    fun showLoading()
+    fun hideLoading()
 }
