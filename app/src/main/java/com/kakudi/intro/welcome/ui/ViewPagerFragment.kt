@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.kakudi.R
-import com.kakudi.databinding.FragmentFirstIntroPageBinding
+import com.kakudi.databinding.FragmentIntroPageBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -16,7 +16,7 @@ import com.kakudi.databinding.FragmentFirstIntroPageBinding
  */
 class ViewPagerFragment : Fragment() {
 
-    lateinit var binding: FragmentFirstIntroPageBinding
+    lateinit var binding: FragmentIntroPageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +25,7 @@ class ViewPagerFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_first_intro_page,
+            R.layout.fragment_intro_page,
             container,
             false
         )

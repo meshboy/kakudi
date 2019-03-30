@@ -5,27 +5,53 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.kakudi.R
+import com.kakudi.databinding.FragmentRegisterBinding
+import com.kakudi.intro.di.modules.MainIntroModule
+import com.kakudi.intro.view.MainIntroView
+import com.kakudi.register.presenter.RegisterPresenter
+import com.kakudi.register.view.RegisterView
+import com.kakudi.shared.di.components.DaggerApplicationComponent
+import com.kakudi.shared.di.modules.ContextModule
+import com.kakudi.shared.di.modules.RepositoryModule
+import com.kakudi.shared.mvp.BaseFragment
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
  *
  */
-class RegisterFragment : Fragment() {
+class RegisterFragment : BaseFragment<RegisterView, RegisterPresenter>() {
+
+    @Inject
+    lateinit var registerPresenter: RegisterPresenter
+
+    override fun createPresenter(): RegisterPresenter = registerPresenter
+
+    lateinit var binding: FragmentRegisterBinding
+
+
+    override fun setDaggerComponent() {
+        DaggerApplicationComponent
+            .builder()
+            .contextModule(ContextModule(activity!!.applicationContext))
+            .repositoryModule(RepositoryModule())
+            .build().plus(MainIntroModule(activity as MainIntroView)).inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_register, container, false)
+        return binding.root
     }
 
+    override fun setView(view: View) {
+
+    }
 
 }

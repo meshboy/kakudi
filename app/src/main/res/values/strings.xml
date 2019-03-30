@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">kakudi</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="login">Sign In</string>
@@ -9,4 +8,14 @@
     <string name="description_one">Kakudi helps  in tracking day to day Cash inflow and outflow</string>
     <string name="description_two">See how you now spend with ease</string>
     <string name="description_three">Get a reminder of the loans and credit you inquire.</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="already_have_account">Already have an account ?</string>
+    <string name="forgot_password">Forgotten your  password ?</string>
+    <string name="login_title">Login to your Kakudi account</string>
+    <string name="username">Username</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="dont_have_account">Don\'t have an account ?</string>
+    <string name="register_title">Create Kakudi Account</string>
 </resources>
