@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.kakudi.R
@@ -41,8 +42,22 @@ class ViewPagerFragment : Fragment() {
     private fun setView() {
         arguments.let {
             binding.descriptionTextView.text = it!!.getString(DESCRIPTION)
-            binding.descriptionImageView.setImageResource(it.getInt(IMAGE_RESOURCE))
-            binding.root.setBackgroundResource(it.getInt(BACKGROUND_COLOR))
+            binding.sliderView.setBackgroundResource(it.getInt(IMAGE_RESOURCE))
+
+            binding.root.background = when (it.getInt(IMAGE_RESOURCE)) {
+                R.drawable.slider_one ->
+
+                    ContextCompat.getDrawable(activity!!.applicationContext, R.drawable.slider_one)
+
+                R.drawable.slider_three ->
+
+                    ContextCompat.getDrawable(activity!!.applicationContext, R.drawable.slider_three)
+
+                else -> ContextCompat.getDrawable(
+                    activity!!.applicationContext,
+                    R.drawable.slider_two
+                )
+            }
         }
     }
 

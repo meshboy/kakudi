@@ -64,21 +64,21 @@ class MainWelcomeFragment : BaseFragment<WelcomeView, WelcomePresenter>(), Welco
         val viewPagerAdapter = MainWelcomePageAdapter(fragmentManager = fragmentManager!!)
         viewPagerAdapter.addFragment(
             ViewPagerFragment.instance(
-                R.drawable.coin,
+                R.drawable.slider_one,
                 getString(R.string.description_one),
                 R.color.slider_one
             )
         )
         viewPagerAdapter.addFragment(
             ViewPagerFragment.instance(
-                R.drawable.money_reminder,
+                R.drawable.slider_three,
                 getString(R.string.description_two),
                 R.color.slider_two
             )
         )
         viewPagerAdapter.addFragment(
             ViewPagerFragment.instance(
-                R.drawable.growth_icon,
+                R.drawable.slider_two,
                 getString(R.string.description_three),
                 R.color.slider_three
             )
