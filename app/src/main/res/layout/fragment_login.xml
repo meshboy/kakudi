@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                       xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                       xmlns:tools="http://schemas.android.com/tools"
-                                                       android:layout_width="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
                                                        android:layout_height="match_parent"
                                                        android:padding="15dp"
                                                        tools:context=".login.ui.LoginFragment">
@@ -42,7 +42,7 @@
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 android:ems="10"
-                android:id="@+id/confirmPasswordText"
+                android:id="@+id/passwordText"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,13 +62,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@+id/confirmPasswordText"/>
+                app:layout_constraintTop_toBottomOf="@+id/passwordText"/>
 
         <Button
                 android:text="@string/sign_in"
                 android:layout_width="224dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/createAccountButton"
+                android:id="@+id/loginAccountButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,20 +78,36 @@
                 app:layout_constraintTop_toBottomOf="@+id/forgotPasswordTextView"
                 style="@style/ButtonStyle"/>
 
-        <TextView
-                android:text="@string/dont_have_account"
+        <ProgressBar
+                style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/navigateToRegisterationTextView"
+                android:id="@+id/loginProgressBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/createAccountButton"
+                app:layout_constraintHorizontal_bias="0.498"
+                android:layout_marginTop="36dp"
+                app:layout_constraintTop_toBottomOf="@+id/forgotPasswordTextView"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toTopOf="@+id/navigateToRegistrationTextView"
+                app:layout_constraintVertical_bias="0.304"
+                android:visibility="gone"
+                tools:visibility="visible"/>
+
+        <TextView
+                android:text="@string/dont_have_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/navigateToRegistrationTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/loginAccountButton"
                 android:layout_marginTop="24dp"
                 style="@style/BlackMediumText"/>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
