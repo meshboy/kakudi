@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.kakudi.R
 import com.kakudi.databinding.ActivityMainIntroBinding
 import com.kakudi.intro.presenter.MainIntroPresenter
@@ -22,7 +23,7 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
     @Inject
     lateinit var mainIntroPresenter: MainIntroPresenter
 
-    lateinit var navController: NavController
+    private lateinit var navController: NavController
 
     lateinit var binding: ActivityMainIntroBinding
 
@@ -61,6 +62,14 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
 
     override fun navigateToRegisterScreenFromWelcomeScreen() {
         navController.navigate(R.id.action_mainWelcomeFragment_to_registerFragment)
+    }
+
+    override fun navigateToRegisterScreenFromLoginScreen() {
+        navController.navigate(R.id.action_loginFragment_to_registerFragment)
+    }
+
+    override fun navigateToLoginScreenFromRegisterScreen() {
+        navController.navigate(R.id.action_registerFragment_to_loginFragment)
     }
 
     override fun navigateToHomeScreen() {

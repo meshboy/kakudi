@@ -10,5 +10,7 @@ interface MainIntroView : BaseView {
     fun navigateToWelcomeScreenFromSplashScreen()
     fun navigateToLoginScreenFromFromWelcomeScreen()
     fun navigateToRegisterScreenFromWelcomeScreen()
+    fun navigateToRegisterScreenFromLoginScreen()
+    fun navigateToLoginScreenFromRegisterScreen()
     fun navigateToHomeScreen()
 }
