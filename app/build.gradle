@@ -65,6 +65,7 @@ dependencies {
     implementation "com.hannesdorfmann.mosby3:mvp:$mosbyVersion"
 
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
 
     implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
 }
