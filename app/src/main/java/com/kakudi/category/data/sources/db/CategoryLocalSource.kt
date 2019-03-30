@@ -10,7 +10,8 @@ import javax.inject.Inject
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 16/03/2019
  */
-class CategoryLocalSource @Inject constructor(private val categoryDao: CategoryDao) : CategoryRepository {
+class CategoryLocalSource @Inject constructor(private val categoryDao: CategoryDao) :
+    CategoryRepository {
 
     override fun insert(data: Category): Observable<Unit> {
         return Observable.fromCallable {

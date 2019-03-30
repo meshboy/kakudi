@@ -8,4 +8,4 @@ import javax.inject.Inject
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 23/03/2019
  */
-class SplashPresenter @Inject constructor(): BasePresenter<SplashView>()
+class SplashPresenter @Inject constructor() : BasePresenter<SplashView>()

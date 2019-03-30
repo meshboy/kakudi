@@ -11,16 +11,21 @@ import javax.inject.Inject
  *@date 17/03/2019
  */
 class CreateCategoryPresenter @Inject constructor(
-        private val createCategory: CreateCategory,
-        private val currentUser: UserRepository,
-        private val viewCreate: CreateCategoryView
+    private val createCategory: CreateCategory,
+    private val currentUser: UserRepository,
+    private val viewCreate: CreateCategoryView
 ) {
 
     fun create(name: String, description: String?, targetAmount: String) {
 
         if (validateInput(name, targetAmount)) {
             val category =
-                    Category(name = name, description = description, targetExpense = targetAmount.toDouble(), userId = "")
+                Category(
+                    name = name,
+                    description = description,
+                    targetExpense = targetAmount.toDouble(),
+                    userId = ""
+                )
             createCategory.execute(category)
 
         }

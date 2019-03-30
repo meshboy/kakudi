@@ -11,7 +11,7 @@ import javax.inject.Named
  *@date 16/03/2019
  */
 class CategoryRepositoryImpl @Inject constructor(@Named("localCategoryResource") private val localResource: CategoryLocalSource) :
-        CategoryRepository {
+    CategoryRepository {
 
     override fun insert(data: Category): Observable<Unit> {
         return localResource.insert(data)

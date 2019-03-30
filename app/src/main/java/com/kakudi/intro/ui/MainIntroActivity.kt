@@ -6,8 +6,8 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.kakudi.R
 import com.kakudi.databinding.ActivityMainIntroBinding
-import com.kakudi.intro.view.MainIntroView
 import com.kakudi.intro.presenter.MainIntroPresenter
+import com.kakudi.intro.view.MainIntroView
 import com.kakudi.main.ui.MainActivity
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
@@ -41,7 +41,7 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main_intro)
         navController = findNavController(R.id.mainIntroNavHost)
 
-        Thread{
+        Thread {
             Thread.sleep(3_000)
             navigateToWelcomeScreenFromSplashScreen()
         }.start()
@@ -56,15 +56,15 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
     }
 
     override fun navigateToLoginScreenFromFromWelcomeScreen() {
-       navController.navigate(R.id.action_mainWelcomeFragment_to_loginFragment)
+        navController.navigate(R.id.action_mainWelcomeFragment_to_loginFragment)
     }
 
     override fun navigateToRegisterScreenFromWelcomeScreen() {
-       navController.navigate(R.id.action_mainWelcomeFragment_to_registerFragment)
+        navController.navigate(R.id.action_mainWelcomeFragment_to_registerFragment)
     }
 
     override fun navigateToHomeScreen() {
-        val homeIntent = Intent(this,  MainActivity::class.java)
+        val homeIntent = Intent(this, MainActivity::class.java)
         homeIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(homeIntent)
     }

@@ -24,10 +24,10 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
     override fun setDaggerComponent() {
         DaggerApplicationComponent
-                .builder()
-                .contextModule(ContextModule(applicationContext))
-                .repositoryModule(RepositoryModule())
-                .build().inject(this)
+            .builder()
+            .contextModule(ContextModule(applicationContext))
+            .repositoryModule(RepositoryModule())
+            .build().inject(this)
     }
 
     override fun setView() {

@@ -15,7 +15,11 @@ import com.kakudi.user.data.model.User
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 15/03/2019
  */
-@Database(entities = [User::class, Category::class, Expense::class], version = 1, exportSchema = false)
+@Database(
+    entities = [User::class, Category::class, Expense::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class KakudiRoomDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao
@@ -27,13 +31,17 @@ abstract class KakudiRoomDatabase : RoomDatabase() {
         private var instance: KakudiRoomDatabase? = null
 
         fun getInstance(context: Context): KakudiRoomDatabase =
-                instance ?: synchronized(this) {
-                    instance ?: buildDatabase(context).also { instance = it }
-                }
+            instance ?: synchronized(this) {
+                instance ?: buildDatabase(context).also { instance = it }
+            }
 
         private fun buildDatabase(context: Context): KakudiRoomDatabase {
-            return Room.databaseBuilder(context.applicationContext, KakudiRoomDatabase::class.java, databaseName)
-                    .build()
+            return Room.databaseBuilder(
+                context.applicationContext,
+                KakudiRoomDatabase::class.java,
+                databaseName
+            )
+                .build()
         }
     }
 }

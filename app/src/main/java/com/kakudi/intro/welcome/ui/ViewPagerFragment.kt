@@ -23,7 +23,7 @@ class ViewPagerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-         binding = DataBindingUtil.inflate(
+        binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_first_intro_page,
             container,
@@ -59,7 +59,7 @@ class ViewPagerFragment : Fragment() {
             backgroundColor: Int
         ): ViewPagerFragment {
             return ViewPagerFragment().apply {
-               arguments =  Bundle().apply {
+                arguments = Bundle().apply {
                     putInt(IMAGE_RESOURCE, imageResource)
                     putString(DESCRIPTION, description)
                     putInt(BACKGROUND_COLOR, backgroundColor)

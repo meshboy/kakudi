@@ -10,11 +10,11 @@ import java.util.*
  */
 @Entity(tableName = "Categories")
 data class Category(
-        @PrimaryKey(autoGenerate = true)
-        val id: Long = 0,
-        val name: String,
-        val targetExpense: Double,
-        val description: String?,
-        val userId: String,
-        val date: Long = Date().time
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
+    val name: String,
+    val targetExpense: Double,
+    val description: String?,
+    val userId: String,
+    val date: Long = Date().time
 )

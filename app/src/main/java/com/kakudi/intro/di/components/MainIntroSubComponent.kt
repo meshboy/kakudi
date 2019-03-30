@@ -15,6 +15,6 @@ import dagger.Subcomponent
 interface MainIntroSubComponent {
     fun inject(fragment: MainWelcomeFragment)
     fun inject(fragment: LoginFragment)
-    fun  inject(fragment: RegisterFragment)
+    fun inject(fragment: RegisterFragment)
     fun inject(fragment: SplashFragment)
 }

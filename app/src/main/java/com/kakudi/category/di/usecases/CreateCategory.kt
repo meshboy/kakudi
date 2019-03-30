@@ -12,7 +12,7 @@ import javax.inject.Inject
  *@date 16/03/2019
  */
 class CreateCategory @Inject constructor(private val repository: CategoryRepository) :
-        NoOutputCase<Category> {
+    NoOutputCase<Category> {
     @SuppressLint("CheckResult")
     override fun execute(data: Category): Observable<Unit> {
         return repository.insert(data)

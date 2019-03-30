@@ -9,4 +9,8 @@ import androidx.room.PrimaryKey
  *@date 15/03/2019
  */
 @Entity
-data class User(val id: String, val username: String, @PrimaryKey val token: String, @ColumnInfo(name = "phonenumber") val phoneNumber: String)
+data class User(
+    val id: String, val username: String, @PrimaryKey val token: String, @ColumnInfo(
+        name = "phonenumber"
+    ) val phoneNumber: String
+)

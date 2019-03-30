@@ -13,9 +13,9 @@ import javax.inject.Inject
  *@date 16/03/2019
  */
 class CategoryListPresenter @Inject constructor(
-        private val fetchCategory: FetchCategory,
-        private val createCategory: CreateCategory,
-        private val currentUser: UserRepository
+    private val fetchCategory: FetchCategory,
+    private val createCategory: CreateCategory,
+    private val currentUser: UserRepository
 ) : BasePresenter<CategoryListView>() {
 
     @SuppressLint("CheckResult")
@@ -24,14 +24,14 @@ class CategoryListPresenter @Inject constructor(
         ifViewAttached { view ->
             view.showLoading()
             fetchCategory.execute("")
-                    .subscribe({ list ->
-                        view.hideLoading()
-                        view.showCategoryList(list)
-                    }, { err ->
-                        err.printStackTrace()
-                        view.hideLoading()
-                        view.showError("An error occurred. please try again")
-                    })
+                .subscribe({ list ->
+                    view.hideLoading()
+                    view.showCategoryList(list)
+                }, { err ->
+                    err.printStackTrace()
+                    view.hideLoading()
+                    view.showError("An error occurred. please try again")
+                })
         }
     }
 

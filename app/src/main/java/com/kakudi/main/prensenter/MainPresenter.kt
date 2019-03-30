@@ -9,7 +9,8 @@ import javax.inject.Inject
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 20/03/2019
  */
-class MainPresenter @Inject constructor(val userRepository: UserRepository) : BasePresenter<MainView>() {
+class MainPresenter @Inject constructor(val userRepository: UserRepository) :
+    BasePresenter<MainView>() {
 
     fun onLogin() {
 
