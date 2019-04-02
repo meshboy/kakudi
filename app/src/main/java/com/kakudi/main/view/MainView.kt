@@ -11,4 +11,5 @@ interface MainView : BaseView {
     fun goToCreateCategoryPage()
     fun goToCreateExpensePage()
     fun goToExpenseListPage()
+    fun goToHomePage()
 }

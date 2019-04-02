@@ -1,7 +1,10 @@
 package com.kakudi.main.ui
 
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.kakudi.R
 import com.kakudi.databinding.ActivityMainBinding
 import com.kakudi.main.prensenter.MainPresenter
@@ -19,6 +22,8 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
     lateinit var mainPresenter: MainPresenter
 
     lateinit var binding: ActivityMainBinding
+    lateinit var navController: NavController
+    lateinit var drawerLayout: DrawerLayout
 
     override fun createPresenter(): MainPresenter = mainPresenter
 
@@ -32,8 +37,13 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
     override fun setView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        drawerLayout = binding.drawerLayout
 
-        val navController = this.findNavController(R.id.mainNavHost)
+        navController = this.findNavController(R.id.mainNavHost)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+    }
+
+    override fun goToHomePage() {
     }
 
     override fun goToCategoryListPage() {
@@ -50,6 +60,10 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
     override fun goToExpenseListPage() {
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
     override fun showError(message: String) {

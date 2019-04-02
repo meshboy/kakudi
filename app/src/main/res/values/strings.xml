@@ -18,4 +18,9 @@
     <string name="confirmPassword">Confirm Password</string>
     <string name="dont_have_account">Don\'t have an account ?</string>
     <string name="register_title">Create Kakudi Account</string>
+    <string name="home">Home</string>
+    <string name="category">Category</string>
+    <string name="reminder">Reminder</string>
+    <string name="records">Records</string>
+    <string name="work_rate">Work Rate</string>
 </resources>
