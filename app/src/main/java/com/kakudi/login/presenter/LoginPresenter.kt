@@ -1,41 +1,52 @@
 package com.kakudi.login.presenter
 
+import android.annotation.SuppressLint
 import com.kakudi.intro.view.MainIntroView
+import com.kakudi.login.di.usecase.LoginUseCase
 import com.kakudi.login.view.LoginView
 import com.kakudi.shared.mvp.BasePresenter
+import com.kakudi.shared.vo.UserVO
+import com.kakudi.user.data.repository.UserRepository
 import javax.inject.Inject
 
 /**
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 30/03/2019
  */
-class LoginPresenter @Inject constructor(private val mainIntroView: MainIntroView) :
+class LoginPresenter @Inject constructor(
+    private val mainIntroView: MainIntroView,
+    private val loginUseCase: LoginUseCase,
+    private val userRepository: UserRepository
+) :
     BasePresenter<LoginView>() {
 
     fun navigateToRegistrationScreen() {
         mainIntroView.navigateToRegisterScreenFromLoginScreen()
     }
 
+    @SuppressLint("CheckResult")
     fun loginUser(email: String, password: String) {
 
         ifViewAttached { view ->
-            view.showLoading()
-        }
 
-        if (isUserCredentialsValid(email, password)) {
+            if (isUserCredentialsValid(email, password)) {
+                view.showLoading()
+                loginUseCase.execute(UserVO(email = email, password = password))
+                    .subscribe({ user ->
+                        userRepository.insert(user)
+                            .subscribe {
+                                view.hideLoading()
+                                mainIntroView.navigateToHomeScreen()
+                            }
+                    }, { err ->
+                        err.printStackTrace()
+                        ifViewAttached { v -> v.showError("Please enter your credentials"); v.hideLoading() }
+                    })
 
-            ifViewAttached { view ->
-                view.hideLoading()
+            } else {
+                view.showError("Please enter your credentials");
             }
-
-//            TODO: connect to server to navigate user in
-//            TODO: save user details in the db
-            mainIntroView.navigateToHomeScreen()
-
-        } else {
-            ifViewAttached { v -> v.showError("Please enter your credentials"); v.hideLoading() }
         }
-
     }
 
     private fun isUserCredentialsValid(email: String, password: String): Boolean {

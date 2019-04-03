@@ -2,25 +2,27 @@
 <menu
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-            android:title="@string/home"
-            android:icon="@drawable/ic_baseline_home_24px"/>
+  <group android:id="@+id/groupOne" android:checkableBehavior="single">
+      <item
+              android:title="@string/home"
+              android:icon="@drawable/ic_baseline_home_24px"/>
 
-    <item
-            android:title="@string/records"
-            android:id="@+id/record"
-            android:icon="@drawable/ic_baseline_format_list_bulleted_24px"/>
+      <item
+              android:title="@string/records"
+              android:id="@+id/record"
+              android:icon="@drawable/ic_baseline_format_list_bulleted_24px"/>
 
-    <item
-            android:title="@string/reminder"
-            android:id="@+id/reminder"
-            android:icon="@drawable/ic_baseline_alarm_24px"/>
-    <item
-            android:title="@string/category"
-            android:id="@+id/category"
-            android:icon="@drawable/ic_baseline_category_24px"/>
+      <item
+              android:title="@string/reminder"
+              android:id="@+id/reminder"
+              android:icon="@drawable/ic_baseline_alarm_24px"/>
+      <item
+              android:title="@string/category"
+              android:id="@+id/category"
+              android:icon="@drawable/ic_baseline_category_24px"/>
 
-    <item android:title="@string/work_rate"
+      <item android:title="@string/work_rate"
             android:id="@+id/workRate"
             android:icon="@drawable/ic_baseline_work_rate_24px"/>
+  </group>
 </menu>

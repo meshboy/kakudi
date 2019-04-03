@@ -1,5 +1,6 @@
 package com.kakudi.main.ui
 
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
@@ -41,6 +42,12 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
         navController = this.findNavController(R.id.mainNavHost)
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+    }
+
+    override fun showUsername(username: String) {
+        val headerView = binding.navView.getHeaderView(0)
+        val usernameTextView: TextView = headerView.findViewById(R.id.usernameTextView)
+        usernameTextView.text = username
     }
 
     override fun goToHomePage() {

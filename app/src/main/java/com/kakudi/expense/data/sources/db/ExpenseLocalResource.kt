@@ -3,6 +3,7 @@ package com.kakudi.expense.data.sources.db
 import com.kakudi.expense.data.dao.ExpenseDao
 import com.kakudi.expense.data.model.Expense
 import com.kakudi.expense.data.repositories.ExpenseRepository
+import io.reactivex.Completable
 import io.reactivex.Observable
 
 /**
@@ -14,10 +15,8 @@ class ExpenseLocalResource(private val expenseDao: ExpenseDao) : ExpenseReposito
         return expenseDao.getExpensesByUserId(userId)
     }
 
-    override fun insert(data: Expense): Observable<Unit> {
-        return Observable.fromCallable {
-            expenseDao.insertExpense(data)
-        }
+    override fun insert(data: Expense): Completable {
+        return  expenseDao.insertExpense(data)
     }
 
     override fun deleteAll() {

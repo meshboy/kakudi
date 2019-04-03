@@ -3,6 +3,7 @@ package com.kakudi.shared.di.modules
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.kakudi.BuildConfig
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
@@ -57,7 +58,7 @@ class NetworkModule {
     @Named("RetrofitMod")
     fun retrofit(providesGson: Gson, providesOkHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-//            .baseUrl(BuildConfig.APP_BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(providesOkHttpClient)
             .addConverterFactory(GsonConverterFactory.create(providesGson))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

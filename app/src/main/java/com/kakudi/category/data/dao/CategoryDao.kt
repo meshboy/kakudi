@@ -2,6 +2,7 @@ package com.kakudi.category.data.dao
 
 import androidx.room.*
 import com.kakudi.category.data.model.Category
+import io.reactivex.Completable
 import io.reactivex.Observable
 
 /**
@@ -15,7 +16,7 @@ interface CategoryDao {
     fun getCategoriesByUserId(userId: String): Observable<List<Category>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCategory(category: Category)
+    fun insertCategory(category: Category): Completable
 
     @Delete
     fun delete(category: Category)

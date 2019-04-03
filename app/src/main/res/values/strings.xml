@@ -23,4 +23,5 @@
     <string name="reminder">Reminder</string>
     <string name="records">Records</string>
     <string name="work_rate">Work Rate</string>
+    <string name="logOut">Logout</string>
 </resources>

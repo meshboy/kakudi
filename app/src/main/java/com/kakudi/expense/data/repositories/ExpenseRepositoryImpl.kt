@@ -2,6 +2,7 @@ package com.kakudi.expense.data.repositories
 
 import com.kakudi.expense.data.model.Expense
 import com.kakudi.expense.data.sources.db.ExpenseLocalResource
+import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Named
@@ -17,7 +18,7 @@ class ExpenseRepositoryImpl @Inject constructor(@Named("localExpenseResource") p
         return localResource.getAllExpenses(userId)
     }
 
-    override fun insert(data: Expense): Observable<Unit> {
+    override fun insert(data: Expense): Completable {
         return localResource.insert(data)
     }
 

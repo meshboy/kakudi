@@ -12,4 +12,5 @@ interface MainView : BaseView {
     fun goToCreateExpensePage()
     fun goToExpenseListPage()
     fun goToHomePage()
+    fun showUsername(username: String)
 }

@@ -2,6 +2,7 @@ package com.kakudi.expense.data.dao
 
 import androidx.room.*
 import com.kakudi.expense.data.model.Expense
+import io.reactivex.Completable
 import io.reactivex.Observable
 
 /**
@@ -15,7 +16,7 @@ interface ExpenseDao {
     fun getExpensesByUserId(userId: String): Observable<List<Expense>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertExpense(expense: Expense)
+    fun insertExpense(expense: Expense): Completable
 
     @Delete
     fun delete(expense: Expense)

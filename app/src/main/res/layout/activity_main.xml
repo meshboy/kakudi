@@ -29,10 +29,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
+                app:headerLayout="@layout/drawer_header"
                 android:background="@color/colorPrimaryDark"
                 app:itemTextColor="@android:color/white"
                 app:itemIconTint="@android:color/white"
-                app:menu="@menu/navdrawer_menu"/>
+                app:menu="@menu/navdrawer_menu">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:padding="@dimen/fab_margin"
+                    android:background="@drawable/button_state"
+                    android:orientation="vertical">
+                <TextView
+                        android:id="@+id/logOut"
+                        style="@style/WhiteMediumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/logOut"/>
+            </LinearLayout>
+        </com.google.android.material.navigation.NavigationView>
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

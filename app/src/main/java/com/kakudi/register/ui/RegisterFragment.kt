@@ -16,7 +16,11 @@ import com.kakudi.register.view.RegisterView
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
+import com.kakudi.shared.ext.hide
+import com.kakudi.shared.ext.show
+import com.kakudi.shared.ext.toast
 import com.kakudi.shared.mvp.BaseFragment
+import kotlinx.android.synthetic.main.fragment_register.*
 import javax.inject.Inject
 
 
@@ -24,7 +28,7 @@ import javax.inject.Inject
  * A simple [Fragment] subclass.
  *
  */
-class RegisterFragment : BaseFragment<RegisterView, RegisterPresenter>() {
+class RegisterFragment : BaseFragment<RegisterView, RegisterPresenter>(), RegisterView {
 
     @Inject
     lateinit var registerPresenter: RegisterPresenter
@@ -51,7 +55,35 @@ class RegisterFragment : BaseFragment<RegisterView, RegisterPresenter>() {
     }
 
     override fun setView(view: View) {
+        binding.createAccountButton.setOnClickListener { onCreateAccountButton() }
+    }
 
+    fun onCreateAccountButton() {
+        binding.apply {
+            val username = "${userNameEditText.text}"
+            val email = "${userEmailText.text}"
+            val password = "${passwordText.text}"
+            val confirmPassword = "${confirmPasswordText.text}"
+            registerPresenter.createAccount(username, email, password, confirmPassword)
+        }
+    }
+
+    override fun showLoading() {
+        binding.apply {
+            createAccountButton.hide()
+            createAccountProgressBar.show()
+        }
+    }
+
+    override fun hideLoading() {
+        binding.apply {
+            createAccountButton.show()
+            createAccountProgressBar.hide()
+        }
+    }
+
+    override fun showError(message: String) {
+        activity?.toast(message)
     }
 
 }

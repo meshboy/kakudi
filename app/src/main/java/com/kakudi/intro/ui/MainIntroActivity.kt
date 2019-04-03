@@ -43,8 +43,8 @@ class MainIntroActivity : BaseActivity<MainIntroView, MainIntroPresenter>(),
         navController = findNavController(R.id.mainIntroNavHost)
 
         Thread {
-            Thread.sleep(2_000)
-            navigateToWelcomeScreenFromSplashScreen()
+            Thread.sleep(3_000)
+            mainIntroPresenter.navigateUserBasedOnLoginStatus()
         }.start()
     }
 

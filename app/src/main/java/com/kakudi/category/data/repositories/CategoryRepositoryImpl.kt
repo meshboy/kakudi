@@ -2,6 +2,7 @@ package com.kakudi.category.data.repositories
 
 import com.kakudi.category.data.model.Category
 import com.kakudi.category.data.sources.db.CategoryLocalSource
+import io.reactivex.Completable
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Named
@@ -13,7 +14,7 @@ import javax.inject.Named
 class CategoryRepositoryImpl @Inject constructor(@Named("localCategoryResource") private val localResource: CategoryLocalSource) :
     CategoryRepository {
 
-    override fun insert(data: Category): Observable<Unit> {
+    override fun insert(data: Category): Completable {
         return localResource.insert(data)
     }
 

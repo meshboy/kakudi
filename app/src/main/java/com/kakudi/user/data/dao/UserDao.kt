@@ -5,7 +5,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.kakudi.user.data.model.User
-import io.reactivex.Observable
+import io.reactivex.Completable
+import io.reactivex.Single
 
 /**
  *@author meshileya seun <mesh@kudi.ai/>
@@ -22,7 +23,7 @@ interface UserDao {
      */
 
     @Query("SELECT * FROM User")
-    fun getCurrentUser(): Observable<User>
+    fun getCurrentUser(): Single<User>
 
 
     /**
@@ -32,5 +33,5 @@ interface UserDao {
      * @param user is inserted
      */
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUser(user: User)
+    fun insertUser(user: User): Completable
 }

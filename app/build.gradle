@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug{
+            buildConfigField "String", "BASE_URL",  '"https://cd1c5fb1.ngrok.io/"'
+        }
     }
 
     dataBinding {
