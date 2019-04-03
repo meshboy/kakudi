@@ -7,6 +7,7 @@ import com.kakudi.login.view.LoginView
 import com.kakudi.shared.mvp.BasePresenter
 import com.kakudi.shared.vo.UserVO
 import com.kakudi.user.data.repository.UserRepository
+import com.kakudi.user.di.usecase.CreateLocalAccount
 import javax.inject.Inject
 
 /**
@@ -16,7 +17,7 @@ import javax.inject.Inject
 class LoginPresenter @Inject constructor(
     private val mainIntroView: MainIntroView,
     private val loginUseCase: LoginUseCase,
-    private val userRepository: UserRepository
+    private val createLocalAccount: CreateLocalAccount
 ) :
     BasePresenter<LoginView>() {
 
@@ -28,12 +29,11 @@ class LoginPresenter @Inject constructor(
     fun loginUser(email: String, password: String) {
 
         ifViewAttached { view ->
-
             if (isUserCredentialsValid(email, password)) {
                 view.showLoading()
                 loginUseCase.execute(UserVO(email = email, password = password))
                     .subscribe({ user ->
-                        userRepository.insert(user)
+                        createLocalAccount.execute(user)
                             .subscribe {
                                 view.hideLoading()
                                 mainIntroView.navigateToHomeScreen()
