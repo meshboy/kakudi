@@ -1,7 +1,10 @@
 package com.kakudi.main.di.components
 
-import com.kakudi.category.ui.CategoryFragment
 import com.kakudi.main.di.modules.MainModule
+import com.kakudi.records.ui.CreateRecordActivity
+import com.kakudi.records.ui.RecordFragment
+import com.kakudi.reminder.ui.CreateReminderFragment
+import com.kakudi.reminder.ui.ReminderFragment
 import dagger.Subcomponent
 
 /**
@@ -10,5 +13,8 @@ import dagger.Subcomponent
  */
 @Subcomponent(modules = [(MainModule::class)])
 interface MainSubComponent {
-    fun inject(fragment: CategoryFragment)
+    fun inject(fragment: RecordFragment)
+    fun inject(fragment: CreateRecordActivity)
+    fun inject(fragment: ReminderFragment)
+    fun inject(fragment: CreateReminderFragment)
 }

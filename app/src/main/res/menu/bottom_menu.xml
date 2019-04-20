@@ -3,15 +3,20 @@
 
     <item
             android:title="@string/home"
-            android:id="@+id/dashboard"
+            android:id="@+id/homeFragment"
             android:icon="@drawable/ic_baseline_home_24px"/>
     <item
             android:title="@string/records"
-            android:id="@+id/record"
+            android:id="@+id/recordFragment"
             android:icon="@drawable/ic_baseline_format_list_bulleted_24px"/>
 
     <item
             android:title="@string/reminder"
-            android:id="@+id/reminder"
+            android:id="@+id/reminderFragment"
             android:icon="@drawable/ic_baseline_alarm_24px"/>
+
+    <item
+            android:title="@string/work_rate"
+            android:id="@+id/workRateFragment"
+            android:icon="@drawable/ic_baseline_work_rate_24px"/>
 </menu>

@@ -20,10 +20,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "BASE_URL",  '""'
+            buildConfigField "String", "BASE_URL", '""'
         }
-        debug{
-            buildConfigField "String", "BASE_URL",  '"https://cd1c5fb1.ngrok.io/"'
+        debug {
+            buildConfigField "String", "BASE_URL", '"https://cd8c1871.ngrok.io/"'
         }
     }
 
@@ -73,4 +73,6 @@ dependencies {
     implementation "com.google.android.material:material:$materialSupportLibVersion"
 
     implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.5'
 }

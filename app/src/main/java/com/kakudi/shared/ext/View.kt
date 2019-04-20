@@ -7,8 +7,13 @@ import android.view.View
  *@date 30/03/2019
  */
 
-fun View.hide() {
-    this.visibility = View.GONE
+fun View.hide(invisible: Boolean = false) {
+    if(invisible) {
+        this.visibility = View.INVISIBLE
+    }
+    else{
+        this.visibility = View.GONE
+    }
 }
 
 fun View.show() {

@@ -1,15 +1,16 @@
 package com.kakudi.main.ui
 
-import android.widget.TextView
+import android.content.Intent
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.kakudi.R
+import com.kakudi.category.ui.CategoryActivity
 import com.kakudi.databinding.ActivityMainBinding
 import com.kakudi.main.prensenter.MainPresenter
 import com.kakudi.main.view.MainView
+import com.kakudi.records.ui.CreateRecordActivity
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
@@ -24,7 +25,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
     lateinit var binding: ActivityMainBinding
     lateinit var navController: NavController
-    lateinit var drawerLayout: DrawerLayout
 
     override fun createPresenter(): MainPresenter = mainPresenter
 
@@ -38,39 +38,17 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
 
     override fun setView() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        drawerLayout = binding.drawerLayout
 
         navController = this.findNavController(R.id.mainNavHost)
-        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
+        NavigationUI.setupWithNavController(binding.bottomNavigation, navController)
     }
 
-    override fun showUsername(username: String) {
-        val headerView = binding.navView.getHeaderView(0)
-        val usernameTextView: TextView = headerView.findViewById(R.id.usernameTextView)
-        usernameTextView.text = username
+    override fun navigateToCreateRecordFromRecordScreen() {
+        startActivity(Intent(this, CreateRecordActivity::class.java))
     }
 
-    override fun goToHomePage() {
-    }
-
-    override fun goToCategoryListPage() {
-
-    }
-
-    override fun goToCreateCategoryPage() {
-
-    }
-
-    override fun goToCreateExpensePage() {
-
-    }
-
-    override fun goToExpenseListPage() {
-
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return NavigationUI.navigateUp(navController, drawerLayout)
+    override fun navigateToCategoryListScreenFromRecordScreen() {
+        startActivity(Intent(this, CategoryActivity::class.java))
     }
 
     override fun showError(message: String) {

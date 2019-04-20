@@ -7,10 +7,7 @@ import com.kakudi.shared.mvp.BaseView
  *@date 20/03/2019
  */
 interface MainView : BaseView {
-    fun goToCategoryListPage()
-    fun goToCreateCategoryPage()
-    fun goToCreateExpensePage()
-    fun goToExpenseListPage()
-    fun goToHomePage()
-    fun showUsername(username: String)
+
+    fun navigateToCreateRecordFromRecordScreen()
+    fun navigateToCategoryListScreenFromRecordScreen()
 }

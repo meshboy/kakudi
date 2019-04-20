@@ -9,9 +9,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.kakudi.R
 import com.kakudi.category.data.model.Category
+import com.kakudi.category.di.domain.modules.CategoryModule
 import com.kakudi.category.prensenter.CategoryListPresenter
 import com.kakudi.category.view.CategoryListView
+import com.kakudi.category.view.CategoryView
 import com.kakudi.main.di.modules.MainModule
+import com.kakudi.main.view.MainView
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
@@ -22,7 +25,7 @@ import javax.inject.Inject
  * A simple [Fragment] subclass.
  *
  */
-class CategoryFragment : BaseFragment<CategoryListView, CategoryListPresenter>(), CategoryListView {
+class CategoryListFragment : BaseFragment<CategoryListView, CategoryListPresenter>(), CategoryListView {
 
     @Inject
     lateinit var categoryListPresenter: CategoryListPresenter
@@ -42,12 +45,12 @@ class CategoryFragment : BaseFragment<CategoryListView, CategoryListPresenter>()
             .builder()
             .contextModule(ContextModule(activity!!.applicationContext))
             .repositoryModule(RepositoryModule())
-            .build().plus(MainModule())
-            .inject(this@CategoryFragment)
+            .build().plus(CategoryModule(activity as CategoryView))
+            .inject(this@CategoryListFragment)
     }
 
     override fun setView(view: View) {
-
+        activity?.title  = getString(R.string.category)
     }
 
     override fun showCategoryList(list: List<Category>) {

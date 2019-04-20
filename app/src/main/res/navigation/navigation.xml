@@ -2,29 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
-            android:id="@+id/navigation"
+            android:id="@+id/bottom_navigation"
             app:startDestination="@id/homeFragment">
 
     <fragment
+            android:id="@+id/reminderFragment"
+            android:name="com.kakudi.reminder.ui.ReminderFragment"
+            android:label="Reminders"
+            tools:layout="@layout/fragment_reminder"/>
+    <fragment
+            android:id="@+id/recordFragment"
+            android:name="com.kakudi.records.ui.RecordFragment"
+            android:label="Records"
+            tools:layout="@layout/fragment_record"/>
+    <fragment
             android:id="@+id/homeFragment"
             android:name="com.kakudi.main.ui.HomeFragment"
-            android:label="Home"
-            tools:layout="@layout/fragment_home">
-        <action
-                android:id="@+id/action_homeFragment_to_categoryFragment"
-                app:destination="@id/categoryFragment"/>
-        <action
-                android:id="@+id/action_homeFragment_to_expenseFragment"
-                app:destination="@id/expenseFragment"/>
-    </fragment>
+            android:label="Home"/>
     <fragment
-            android:id="@+id/categoryFragment"
-            android:name="com.kakudi.category.ui.CategoryFragment"
-            android:label="Category"
-            tools:layout="@layout/fragment_category"/>
-    <fragment
-            android:id="@+id/expenseFragment"
-            android:name="com.kakudi.expense.ui.ExpenseFragment"
-            android:label="Expense"
-            tools:layout="@layout/fragment_expense"/>
+            android:id="@+id/workRateFragment"
+            android:name="com.kakudi.workrate.ui.WorkRateFragment"
+            android:label="Work Rate"
+            tools:layout="@layout/fragment_work_rate"/>
 </navigation>

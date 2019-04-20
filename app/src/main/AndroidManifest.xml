@@ -5,7 +5,7 @@
           package="com.kakudi">
 
     <dist:module dist:instant="true"/>
-    
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -20,7 +20,17 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+                android:name=".category.ui.CategoryActivity"
+                android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".main.ui.MainActivity"/>
+
+        <activity
+                android:name=".records.ui.CreateRecordActivity"
+                android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
                 android:name=".intro.ui.MainIntroActivity"
                 android:theme="@style/AppTheme.NoActionBar">

@@ -6,8 +6,8 @@ import com.kakudi.login.di.usecase.LoginUseCase
 import com.kakudi.login.view.LoginView
 import com.kakudi.shared.mvp.BasePresenter
 import com.kakudi.shared.vo.UserVO
-import com.kakudi.user.data.repository.UserRepository
 import com.kakudi.user.di.usecase.CreateLocalAccount
+import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -38,13 +38,12 @@ class LoginPresenter @Inject constructor(
                                 view.hideLoading()
                                 mainIntroView.navigateToHomeScreen()
                             }
-                    }, { err ->
-                        err.printStackTrace()
-                        ifViewAttached { v -> v.showError("Please enter your credentials"); v.hideLoading() }
+                    }, {
+                        ifViewAttached { v -> v.showError("Something went wrong. Please try again"); v.hideLoading() }
                     })
 
             } else {
-                view.showError("Please enter your credentials");
+                view.showError("Please enter your credentials")
             }
         }
     }

@@ -24,7 +24,7 @@ class MainPresenter @Inject constructor(private val currentUser: CurrentUser) :
         currentUser.execute()
             .subscribe({ user ->
                 ifViewAttached {view ->
-                    view.showUsername(user.username)
+//                    view.showUsername(user.username)
                 }
             }, { err ->
                 err.printStackTrace()

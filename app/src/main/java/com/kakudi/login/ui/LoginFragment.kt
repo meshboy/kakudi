@@ -76,11 +76,11 @@ class LoginFragment : BaseFragment<LoginView, LoginPresenter>(), LoginView {
 
     override fun showLoading() {
         binding.loginProgressBar.show()
-        binding.loginAccountButton.hide()
+        binding.loginAccountButton.hide(true)
     }
 
     override fun hideLoading() {
-        binding.loginProgressBar.hide()
+        binding.loginProgressBar.hide(true)
         binding.loginAccountButton.show()
     }
 

@@ -20,7 +20,6 @@ import com.kakudi.shared.ext.hide
 import com.kakudi.shared.ext.show
 import com.kakudi.shared.ext.toast
 import com.kakudi.shared.mvp.BaseFragment
-import kotlinx.android.synthetic.main.fragment_register.*
 import javax.inject.Inject
 
 

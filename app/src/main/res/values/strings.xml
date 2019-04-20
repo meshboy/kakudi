@@ -24,4 +24,5 @@
     <string name="records">Records</string>
     <string name="work_rate">Work Rate</string>
     <string name="logOut">Logout</string>
+    <string name="create_record">Create Record</string>
 </resources>
