@@ -18,8 +18,9 @@ class CategoryLocalSource @Inject constructor(private val categoryDao: CategoryD
         return  categoryDao.insertCategory(data)
     }
 
-    override fun getAllCategories(userId: String): Observable<List<Category>> {
-        return categoryDao.getCategoriesByUserId(userId)
+    override fun getAllCategories(userId: Long): Observable<List<Category>> {
+        return categoryDao.getCategoriesByUserId(userId).toObservable()
+
     }
 
     override fun delete(data: Category) {

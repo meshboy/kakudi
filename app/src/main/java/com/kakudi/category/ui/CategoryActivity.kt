@@ -8,6 +8,7 @@ import com.kakudi.databinding.ActivityCategoryBinding
 import com.kakudi.shared.di.components.DaggerApplicationComponent
 import com.kakudi.shared.di.modules.ContextModule
 import com.kakudi.shared.di.modules.RepositoryModule
+import com.kakudi.shared.ext.pop
 import com.kakudi.shared.ext.toast
 import com.kakudi.shared.mvp.BaseActivity
 import javax.inject.Inject
@@ -47,7 +48,7 @@ class CategoryActivity : BaseActivity<CategoryView, CategoryPresenter>(), Catego
 
     override fun navigateToCreateCategory() {
         supportFragmentManager.beginTransaction()
-            .add(R.id.categoryContainer, CreateCategoryFragment()).commit()
+            .replace(R.id.categoryContainer, CreateCategoryFragment()).addToBackStack(null).commit()
     }
 
     override fun showError(message: String) {
@@ -55,7 +56,9 @@ class CategoryActivity : BaseActivity<CategoryView, CategoryPresenter>(), Catego
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        finish()
+        pop {
+            finish()
+        }
         return super.onSupportNavigateUp()
     }
 }

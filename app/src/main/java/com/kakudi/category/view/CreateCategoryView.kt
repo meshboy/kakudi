@@ -9,5 +9,7 @@ import com.kakudi.shared.mvp.BaseView
 interface CreateCategoryView : BaseView {
 
     fun nameError(message: String?)
-    fun budgetExpenseError(message: String?)
+    fun showSuccess(message: String)
+    fun showLoading()
+    fun hideLoading()
 }

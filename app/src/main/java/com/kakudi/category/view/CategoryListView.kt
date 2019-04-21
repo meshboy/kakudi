@@ -9,6 +9,7 @@ import com.kakudi.shared.mvp.BaseView
  */
 interface CategoryListView : BaseView {
     fun showCategoryList(list: List<Category>)
+    fun showEmptyCategory()
     fun showLoading()
     fun hideLoading()
     fun showNextLoading()

@@ -22,7 +22,7 @@ interface UserDao {
      * @return the user from the table with  a specific token
      */
 
-    @Query("SELECT * FROM User")
+    @Query("SELECT * FROM Users")
     fun getCurrentUser(): Single<User>
 
 

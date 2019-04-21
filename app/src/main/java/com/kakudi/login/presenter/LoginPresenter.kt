@@ -7,7 +7,6 @@ import com.kakudi.login.view.LoginView
 import com.kakudi.shared.mvp.BasePresenter
 import com.kakudi.shared.vo.UserVO
 import com.kakudi.user.di.usecase.CreateLocalAccount
-import retrofit2.HttpException
 import javax.inject.Inject
 
 /**
@@ -32,13 +31,14 @@ class LoginPresenter @Inject constructor(
             if (isUserCredentialsValid(email, password)) {
                 view.showLoading()
                 loginUseCase.execute(UserVO(email = email, password = password))
-                    .subscribe({ user ->
+                    .flatMap { user ->
                         createLocalAccount.execute(user)
-                            .subscribe {
-                                view.hideLoading()
-                                mainIntroView.navigateToHomeScreen()
-                            }
-                    }, {
+                    }
+                    .subscribe({
+                        view.hideLoading()
+                        mainIntroView.navigateToHomeScreen()
+                    }, { err ->
+                        err.printStackTrace()
                         ifViewAttached { v -> v.showError("Something went wrong. Please try again"); v.hideLoading() }
                     })
 

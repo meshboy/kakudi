@@ -11,6 +11,10 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!--<item name="colorControlNormal">@android:color/white</item>-->
+    </style>
+
+    <style name="whiteNoActionBar" parent="AppTheme.NoActionBar">
         <item name="colorControlNormal">@android:color/white</item>
     </style>
 
@@ -48,6 +52,15 @@
         <item name="android:background">@drawable/button_state</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:fontFamily">@font/lato</item>
+    </style>
+
+    <style name="TextDescStyle">
+        <item name="android:fontFamily">@font/lato</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/text_desc</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorSecondaryText</item>
     </style>
 
 </resources>

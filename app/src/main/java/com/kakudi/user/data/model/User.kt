@@ -8,10 +8,11 @@ import androidx.room.PrimaryKey
  *@author meshileya seun <mesh@kudi.ai/>
  *@date 15/03/2019
  */
-@Entity
+@Entity(tableName = "Users")
 data class User(
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
     val username: String,
-    @PrimaryKey
     val token: String,
     val email: String
 )

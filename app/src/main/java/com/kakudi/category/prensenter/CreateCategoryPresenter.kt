@@ -1,9 +1,11 @@
 package com.kakudi.category.prensenter
 
+import android.annotation.SuppressLint
 import com.kakudi.category.data.model.Category
 import com.kakudi.category.di.usecases.CreateCategory
 import com.kakudi.category.view.CreateCategoryView
-import com.kakudi.user.data.repository.UserRepository
+import com.kakudi.shared.mvp.BasePresenter
+import com.kakudi.user.di.usecase.CurrentUser
 import javax.inject.Inject
 
 /**
@@ -12,33 +14,46 @@ import javax.inject.Inject
  */
 class CreateCategoryPresenter @Inject constructor(
     private val createCategory: CreateCategory,
-    private val currentUser: UserRepository,
-    private val viewCreate: CreateCategoryView
-) {
+    private val currentUser: CurrentUser
+) : BasePresenter<CreateCategoryView>() {
 
-    fun create(name: String, description: String?, targetAmount: String) {
+    @SuppressLint("CheckResult")
+    fun create(name: String?, description: String?) {
 
-        if (validateInput(name, targetAmount)) {
-            val category =
-                Category(
-                    name = name,
-                    description = description,
-                    targetExpense = targetAmount.toDouble(),
-                    userId = ""
-                )
-            createCategory.execute(category)
+        if (validateInput(name)) {
+
+            ifViewAttached { view ->
+                view.showLoading()
+                currentUser.execute()
+                    .flatMap { user ->
+                        val category =
+                            Category(
+                                name = name!!,
+                                description = description,
+                                userId = user.id
+                            )
+                        createCategory.execute(category)
+                    }
+                    .subscribe({
+                        view.hideLoading()
+                        view.showSuccess("Category created successfully")
+
+                    }, { err ->
+                        err.printStackTrace()
+                        view.hideLoading()
+                        view.showError("Something went wrong. Please try again...")
+                    })
+            }
 
         }
     }
 
-    private fun validateInput(name: String, targetAmount: String): Boolean {
+    private fun validateInput(name: String?): Boolean {
         when {
-            name.isEmpty() -> {
-                viewCreate.nameError("Name can not be empty")
-                return false
-            }
-            targetAmount.isEmpty() -> {
-                viewCreate.budgetExpenseError("Budget expense can not be empty")
+            name.isNullOrEmpty() -> {
+                ifViewAttached { view ->
+                    view.nameError("Category name can not be empty")
+                }
                 return false
             }
         }

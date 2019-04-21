@@ -9,5 +9,5 @@ import io.reactivex.Observable
  *@date 16/03/2019
  */
 interface CategoryRepository : Repository<Category> {
-    fun getAllCategories(userId: String): Observable<List<Category>>
+    fun getAllCategories(userId: Long): Observable<List<Category>>
 }

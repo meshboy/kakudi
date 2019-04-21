@@ -25,4 +25,10 @@
     <string name="work_rate">Work Rate</string>
     <string name="logOut">Logout</string>
     <string name="create_record">Create Record</string>
+    <string name="title_activity_demo">DemoAc</string>
+    <string name="create_category">Create Category</string>
+    <string name="category_desc">Create a unique category for your records</string>
+    <string name="desc_category_desc">Add description to your category (Optional)</string>
+    <string name="description">Description</string>
+    <string name="empty_category">Category is empty.</string>
 </resources>
